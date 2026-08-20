@@ -1,0 +1,58 @@
+@if (habitacion) {
+
+  <section class="py-16 px-4">
+
+    <div class="max-w-screen-xl mx-auto">
+
+      <a
+        routerLink="/home"
+        class="inline-block mb-8 text-blue-700 hover:underline">
+        ← Volver a habitaciones
+      </a>
+
+      <div class="grid md:grid-cols-2 gap-10 items-center">
+
+        <div>
+          <img
+            class="w-full rounded-lg shadow-lg"
+            [src]="habitacion.imagen"
+            [alt]="habitacion.nombre">
+        </div>
+
+        <div>
+
+          <h1 class="text-4xl font-bold text-gray-900 mb-4">
+            {{ habitacion.nombre }}
+          </h1>
+
+          <p class="text-lg text-gray-600 mb-6">
+            {{ habitacion.descripcion }}
+          </p>
+
+          <p class="mb-3 text-gray-700">
+            <strong>Capacidad:</strong>
+            {{ habitacion.capacidad }}
+          </p>
+
+          <p class="text-3xl font-bold text-gray-900 mb-8">
+            ${{ habitacion.precio }}
+            <span class="text-base font-normal text-gray-500">
+              / noche
+            </span>
+          </p>
+
+          <button
+            type="button"
+            class="text-white bg-blue-700 hover:bg-blue-800 font-medium rounded-lg px-6 py-3">
+            Reservar habitación
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+}

@@ -1,0 +1,117 @@
+<section class="py-16 px-4 bg-white">
+
+  <div class="max-w-screen-xl mx-auto">
+
+    <div class="grid md:grid-cols-2 gap-12">
+
+      <!-- INFORMACIÓN -->
+      <div>
+
+        <h2 class="text-4xl font-bold text-gray-900 mb-6">
+          Ponte en contacto
+        </h2>
+
+        <p class="text-lg text-gray-600 mb-8">
+          ¿Tienes alguna pregunta sobre nuestras habitaciones o servicios?
+          Envíanos un mensaje y estaremos encantados de ayudarte.
+        </p>
+
+        <div class="space-y-5 text-gray-700">
+
+          <p>
+            <strong>Dirección:</strong><br>
+            Quito, Ecuador
+          </p>
+
+          <p>
+            <strong>Teléfono:</strong><br>
+            +593 99 999 9999
+          </p>
+
+          <p>
+            <strong>Correo:</strong><br>
+            reservas@acdhotel.com
+          </p>
+
+        </div>
+
+      </div>
+
+      <!-- FORMULARIO -->
+      <div class="p-8 bg-gray-50 rounded-lg shadow-sm">
+
+        <form (ngSubmit)="enviarFormulario()">
+
+          <div class="mb-5">
+
+            <label
+              for="nombre"
+              class="block mb-2 text-sm font-medium text-gray-900">
+              Nombre
+            </label>
+
+            <input
+              id="nombre"
+              type="text"
+              name="nombre"
+              [(ngModel)]="contacto.nombre"
+              required
+              class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5"
+              placeholder="Tu nombre">
+
+          </div>
+
+          <div class="mb-5">
+
+            <label
+              for="correo"
+              class="block mb-2 text-sm font-medium text-gray-900">
+              Correo electrónico
+            </label>
+
+            <input
+              id="correo"
+              type="email"
+              name="correo"
+              [(ngModel)]="contacto.correo"
+              required
+              class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5"
+              placeholder="correo@ejemplo.com">
+
+          </div>
+
+          <div class="mb-5">
+
+            <label
+              for="mensaje"
+              class="block mb-2 text-sm font-medium text-gray-900">
+              Mensaje
+            </label>
+
+            <textarea
+              id="mensaje"
+              name="mensaje"
+              [(ngModel)]="contacto.mensaje"
+              required
+              rows="5"
+              class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5"
+              placeholder="Escribe tu mensaje">
+            </textarea>
+
+          </div>
+
+          <button
+            type="submit"
+            class="text-white bg-blue-700 hover:bg-blue-800 font-medium rounded-lg text-sm px-5 py-2.5">
+            Enviar mensaje
+          </button>
+
+        </form>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
