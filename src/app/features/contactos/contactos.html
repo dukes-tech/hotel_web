@@ -16,24 +16,36 @@
           Envíanos un mensaje y estaremos encantados de ayudarte.
         </p>
 
-        <div class="space-y-5 text-gray-700">
+        @if (hotel) {
 
-          <p>
-            <strong>Dirección:</strong><br>
-            Quito, Ecuador
-          </p>
+          <div class="space-y-5 text-gray-700">
 
-          <p>
-            <strong>Teléfono:</strong><br>
-            +593 99 999 9999
-          </p>
+            <p>
+              <strong>Dirección:</strong><br>
+              {{ hotel.ubicacion.direccion }}<br>
+              {{ hotel.ubicacion.ciudad }},
+              {{ hotel.ubicacion.provincia }},
+              {{ hotel.ubicacion.pais }}
+            </p>
 
-          <p>
-            <strong>Correo:</strong><br>
-            reservas@acdhotel.com
-          </p>
+            <p>
+              <strong>Teléfono:</strong><br>
+              {{ hotel.contacto.telefono_principal }}
+            </p>
 
-        </div>
+            <p>
+              <strong>WhatsApp:</strong><br>
+              {{ hotel.contacto.whatsapp }}
+            </p>
+
+            <p>
+              <strong>Correo:</strong><br>
+              {{ hotel.contacto.correo_reservas }}
+            </p>
+
+          </div>
+
+        }
 
       </div>
 

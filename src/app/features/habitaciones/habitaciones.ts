@@ -1,53 +1,83 @@
-import { Component } from '@angular/core';
-import { ActivatedRoute, RouterLink } from '@angular/router';
-
+import { Component, ChangeDetectorRef } from '@angular/core';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
+import { HotelService } from '../../services/hotel.service';
+import { FormsModule } from '@angular/forms';
 @Component({
   selector: 'app-habitaciones',
-  imports: [RouterLink],
+  imports: [RouterLink, FormsModule],
   templateUrl: './habitaciones.html',
   styleUrl: './habitaciones.css',
 })
 export class Habitaciones {
 
-  idHabitacion: number = 0;
+  idHabitacion: string = '';
+  habitacion: any = null;
+  modoEdicion: boolean = false;
+  constructor(
+    private route: ActivatedRoute,
+    private hotelService: HotelService,
+    private cdr: ChangeDetectorRef,
+    private router: Router
+  ) {
+    this.idHabitacion =
+      this.route.snapshot.paramMap.get('id') ?? '';
 
-  habitaciones = [
-    {
-      id: 1,
-      nombre: 'Habitación Simple',
-      descripcion: 'Ideal para una persona. Cómoda, moderna y equipada para una estadía tranquila.',
-      precio: 35,
-      capacidad: '1 persona',
-      imagen: 'https://images.unsplash.com/photo-1611892440504-42a792e24d32'
-    },
-    {
-      id: 2,
-      nombre: 'Habitación Doble',
-      descripcion: 'Perfecta para parejas o dos huéspedes, con mayor espacio y comodidad.',
-      precio: 55,
-      capacidad: '2 personas',
-      imagen: 'https://images.unsplash.com/photo-1590490360182-c33d57733427'
-    },
-    {
-      id: 3,
-      nombre: 'Habitación Familiar',
-      descripcion: 'Amplia habitación diseñada para disfrutar una cómoda estadía en familia.',
-      precio: 85,
-      capacidad: '4 personas',
-      imagen: 'https://images.unsplash.com/photo-1566665797739-1674de7a421a'
-    }
-  ];
-
-  habitacion: any;
-
-  constructor(private route: ActivatedRoute) {
-
-    this.idHabitacion = Number(
-      this.route.snapshot.paramMap.get('id')
-    );
-
-    this.habitacion = this.habitaciones.find(
-      h => h.id === this.idHabitacion
-    );
+    this.cargarHabitacion();
   }
+
+  async cargarHabitacion() {
+      this.habitacion =
+        await this.hotelService.obtenerHabitacion(this.idHabitacion);
+
+      this.cdr.detectChanges();
+    }
+    
+  editar() {
+    this.modoEdicion = true;
+  }
+
+  
+  async guardarCambios() {
+
+    await this.hotelService.actualizarHabitacion(
+      this.idHabitacion,
+      {
+        precio_por_noche: this.habitacion.precio_por_noche,
+        disponible: this.habitacion.disponible
+      }
+    );
+
+    this.modoEdicion = false;
+
+    alert('Habitación actualizada correctamente');
+
+    this.cdr.detectChanges();
+  }
+  async eliminarHabitacion() {
+
+  const confirmar = confirm(
+    '¿Estás seguro de eliminar esta habitación?'
+  );
+
+  if (!confirmar) {
+    return;
+  }
+
+  try {
+
+    await this.hotelService.eliminarHabitacion(
+      this.idHabitacion
+    );
+
+    alert('Habitación eliminada correctamente');
+
+    this.router.navigate(['/home']);
+
+  } catch (error) {
+
+    console.error('Error eliminando habitación:', error);
+
+    alert('No se pudo eliminar la habitación');
+  }
+}
 }

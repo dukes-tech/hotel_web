@@ -16,13 +16,13 @@
           <img
             class="w-full rounded-lg shadow-lg"
             [src]="habitacion.imagen"
-            [alt]="habitacion.nombre">
+            [alt]="habitacion.tipo">
         </div>
 
         <div>
 
           <h1 class="text-4xl font-bold text-gray-900 mb-4">
-            {{ habitacion.nombre }}
+            {{ habitacion.tipo }}
           </h1>
 
           <p class="text-lg text-gray-600 mb-6">
@@ -30,22 +30,138 @@
           </p>
 
           <p class="mb-3 text-gray-700">
-            <strong>Capacidad:</strong>
-            {{ habitacion.capacidad }}
+            <strong>Adultos:</strong>
+            {{ habitacion.capacidad.adultos }}
           </p>
 
-          <p class="text-3xl font-bold text-gray-900 mb-8">
-            ${{ habitacion.precio }}
-            <span class="text-base font-normal text-gray-500">
-              / noche
-            </span>
+          <p class="mb-3 text-gray-700">
+            <strong>Niños:</strong>
+            {{ habitacion.capacidad.ninos }}
           </p>
+
+          <p class="mb-3 text-gray-700">
+            <strong>Camas:</strong>
+            {{ habitacion.cantidad_camas }}
+            - {{ habitacion.tipo_cama }}
+          </p>
+
+          <div class="mb-6">
+
+            <h2 class="text-xl font-bold text-gray-900 mb-3">
+              Comodidades
+            </h2>
+
+            <ul class="space-y-2">
+
+              @for (comodidad of habitacion.comodidades; track comodidad) {
+
+                <li class="text-gray-700">
+                  ✓ {{ comodidad }}
+                </li>
+
+              }
+
+            </ul>
+
+          </div>
+
+        @if (!modoEdicion) {
+
+        <!-- PRECIO -->
+        <p class="text-3xl font-bold text-gray-900 mb-4">
+          ${{ habitacion.precio_por_noche }}
+          <span class="text-base font-normal text-gray-500">
+            / noche
+          </span>
+        </p>
+
+        <!-- ESTADO -->
+        <p class="mb-6">
+          <strong>Estado:</strong>
+          {{ habitacion.disponible ? 'Disponible' : 'No disponible' }}
+        </p>
+
+        <!-- BOTONES CRUD -->
+        <div class="flex flex-wrap gap-3 mb-4">
+
+          <button
+            type="button"
+            (click)="editar()"
+            class="text-white bg-yellow-500 hover:bg-yellow-600 font-medium rounded-lg px-6 py-3">
+            Editar
+          </button>
+
+          <button
+            type="button"
+            (click)="eliminarHabitacion()"
+            class="text-white bg-red-600 hover:bg-red-700 font-medium rounded-lg px-6 py-3">
+            Eliminar
+          </button>
+
+        </div>
+
+        <!-- RESERVAR -->
+        @if (habitacion.disponible) {
 
           <button
             type="button"
             class="text-white bg-blue-700 hover:bg-blue-800 font-medium rounded-lg px-6 py-3">
             Reservar habitación
           </button>
+
+        } @else {
+
+          <button
+            type="button"
+            disabled
+            class="text-gray-500 bg-gray-200 font-medium rounded-lg px-6 py-3 cursor-not-allowed">
+            Habitación no disponible
+          </button>
+
+        }
+
+} @else {
+
+  <!-- EDITAR PRECIO -->
+  <div class="mb-5">
+
+    <label class="block mb-2 font-medium">
+      Precio por noche
+    </label>
+
+    <input
+      type="number"
+      [(ngModel)]="habitacion.precio_por_noche"
+      class="border border-gray-300 rounded-lg p-2.5 w-full">
+
+  </div>
+
+  <!-- EDITAR DISPONIBILIDAD -->
+  <div class="mb-6">
+
+    <label class="flex items-center gap-2">
+
+      <input
+        type="checkbox"
+        [(ngModel)]="habitacion.disponible">
+
+      Habitación disponible
+
+    </label>
+
+  </div>
+
+  <!-- GUARDAR -->
+  <button
+    type="button"
+    (click)="guardarCambios()"
+    class="text-white bg-green-600 hover:bg-green-700 font-medium rounded-lg px-6 py-3">
+    Guardar cambios
+  </button>
+
+}
+
+         
 
         </div>
 

@@ -1,8 +1,10 @@
-<app-hero
-  titulo="Bienvenido a ACD Hotel"
-  descripcion="Comodidad, elegancia y una experiencia inolvidable para tu estadía."
-  imagen="https://images.unsplash.com/photo-1566073771259-6a8506099945">
-</app-hero>
+@if (hotel) {
+  <app-hero
+    [titulo]="'Bienvenido a ' + hotel.nombre"
+    [descripcion]="hotel.descripcion_corta"
+    [imagen]="hotel.imagenes.portada">
+  </app-hero>
+}
 <section class="py-16 px-4">
 
   <div class="max-w-screen-xl mx-auto">
@@ -37,12 +39,12 @@
     class="w-full h-64 object-cover"
     [class.grayscale]="!habitacion.disponible"
     [src]="habitacion.imagen"
-    [alt]="habitacion.nombre">
+    [alt]="habitacion.tipo">
 
   <div class="p-5">
 
     <h3 class="mb-2 text-2xl font-bold text-gray-900">
-      {{ habitacion.nombre }}
+      {{ habitacion.tipo }}
     </h3>
 
     <p class="mb-4 text-gray-600">
@@ -50,7 +52,7 @@
     </p>
 
     <p class="mb-5 text-xl font-semibold text-gray-900">
-      ${{ habitacion.precio }} / noche
+      ${{ habitacion.precio_por_noche }} / noche
     </p>
 
     @if (habitacion.disponible) {

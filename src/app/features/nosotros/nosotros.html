@@ -1,52 +1,60 @@
-<section class="py-16 px-4 bg-white">
+@if (hotel) {
 
-  <div class="max-w-screen-xl mx-auto">
+  <app-hero
+  titulo="Sobre Nosotros"
+  [descripcion]="hotel.descripcion_corta"
+  [imagen]="hotel.imagenes.nosotros">
+</app-hero>
 
-    <div class="grid md:grid-cols-2 gap-12 items-center">
+  <section class="py-16 px-4 bg-white">
 
-      <div>
-        <img
-          src="https://images.unsplash.com/photo-1564501049412-61c2a3083791"
-          alt="ACD Hotel"
-          class="w-full rounded-lg shadow-lg">
-      </div>
+    <div class="max-w-screen-xl mx-auto">
 
-      <div>
+      <div class="grid md:grid-cols-2 gap-12 items-center">
 
-        <h2 class="text-4xl font-bold text-gray-900 mb-6">
-          Nuestra historia
-        </h2>
+        <div>
+          <img
+            [src]="hotel.imagenes.nosotros"
+            [alt]="hotel.nombre"
+            class="w-full rounded-lg shadow-lg">
+        </div>
 
-        <p class="text-gray-600 text-lg mb-4">
-          ACD Hotel nace con el objetivo de ofrecer a nuestros huéspedes
-          comodidad, tranquilidad y un servicio de calidad.
-        </p>
+        <div>
 
-        <p class="text-gray-600 text-lg mb-8">
-          Buscamos crear experiencias agradables para familias, parejas
-          y viajeros que desean sentirse como en casa durante su estadía.
-        </p>
+          <h2 class="text-4xl font-bold text-gray-900 mb-6">
+            Nuestra historia
+          </h2>
 
-        <div class="grid grid-cols-2 gap-6">
+          <p class="text-gray-600 text-lg mb-8">
+            {{ hotel.historia }}
+          </p>
 
-          <div class="p-5 bg-gray-50 rounded-lg">
-            <h3 class="text-xl font-bold text-gray-900 mb-2">
-              Misión
-            </h3>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 
-            <p class="text-gray-600">
-              Brindar alojamiento cómodo y atención de calidad.
-            </p>
-          </div>
+            <div class="p-5 bg-gray-50 rounded-lg">
 
-          <div class="p-5 bg-gray-50 rounded-lg">
-            <h3 class="text-xl font-bold text-gray-900 mb-2">
-              Visión
-            </h3>
+              <h3 class="text-xl font-bold text-gray-900 mb-2">
+                Misión
+              </h3>
 
-            <p class="text-gray-600">
-              Ser un hotel reconocido por su servicio y hospitalidad.
-            </p>
+              <p class="text-gray-600">
+                {{ hotel.mision }}
+              </p>
+
+            </div>
+
+            <div class="p-5 bg-gray-50 rounded-lg">
+
+              <h3 class="text-xl font-bold text-gray-900 mb-2">
+                Visión
+              </h3>
+
+              <p class="text-gray-600">
+                {{ hotel.vision }}
+              </p>
+
+            </div>
+
           </div>
 
         </div>
@@ -55,6 +63,6 @@
 
     </div>
 
-  </div>
+  </section>
 
-</section>
+}

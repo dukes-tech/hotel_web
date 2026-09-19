@@ -1,0 +1,412 @@
+{
+  "hotel_id": 101,
+  "nombre": "ACD Hotel",
+  "nombre_comercial": "Hotel Andino San Bartolo",
+  "descripcion_corta": "Comodidad y hospitalidad en el corazón de Quito.",
+  "descripcion": "Hotel ubicado en el sur de Quito, diseñado para ofrecer comodidad, seguridad y una experiencia agradable tanto para viajeros de negocios como para turistas.",
+  "historia": "ACD Hotel nace con el objetivo de ofrecer a nuestros huéspedes comodidad, tranquilidad y un servicio de calidad. Buscamos crear experiencias agradables para familias, parejas y viajeros que desean sentirse como en casa durante su estadía.",
+  "mision": "Brindar alojamiento cómodo, seguro y una atención de calidad, ofreciendo experiencias agradables a cada uno de nuestros huéspedes.",
+  "vision": "Ser un hotel reconocido en Quito por la calidad de nuestro servicio, comodidad y hospitalidad.",
+
+  "categoria": {
+    "estrellas": 4,
+    "tipo": "Hotel",
+    "segmento": "Turismo y negocios"
+  },
+
+  "estado": {
+    "activo": true,
+    "acepta_reservas": true
+  },
+
+  "ubicacion": {
+    "direccion": "Av. Maldonado S12-45",
+    "sector": "San Bartolo",
+    "ciudad": "Quito",
+    "provincia": "Pichincha",
+    "pais": "Ecuador",
+    "codigo_postal": "170103",
+    "coordenadas": {
+      "latitud": -0.2541,
+      "longitud": -78.5158
+    }
+  },
+
+  "contacto": {
+    "telefono_principal": "+593 2 265 0000",
+    "whatsapp": "+593 99 123 4567",
+    "correo_reservas": "reservas@acdhotel.com",
+    "correo_informacion": "info@acdhotel.com",
+    "sitio_web": "https://acdhotel.com"
+  },
+
+  "redes_sociales": {
+    "facebook": "https://facebook.com/acdhotel",
+    "instagram": "https://instagram.com/acdhotel",
+    "tiktok": "https://tiktok.com/@acdhotel"
+  },
+
+  "horarios": {
+    "recepcion": "24 horas",
+    "check_in": "14:00",
+    "check_out": "12:00",
+    "desayuno": {
+      "desde": "07:00",
+      "hasta": "10:00"
+    }
+  },
+
+  "imagenes": {
+    "logo": "assets/images/logo.png",
+    "portada": "https://images.unsplash.com/photo-1566073771259-6a8506099945",
+    "nosotros": "https://images.unsplash.com/photo-1564501049412-61c2a3083791",
+
+    "galeria": [
+      {
+        "id": 1,
+        "url": "assets/images/hotel-01.jpg",
+        "descripcion": "Fachada principal del hotel"
+      },
+      {
+        "id": 2,
+        "url": "assets/images/hotel-02.jpg",
+        "descripcion": "Recepción del hotel"
+      },
+      {
+        "id": 3,
+        "url": "assets/images/hotel-03.jpg",
+        "descripcion": "Área social"
+      }
+    ]
+  },
+
+  "amenidades_generales": [
+    {
+      "id": 1,
+      "nombre": "Wi-Fi gratis",
+      "icono": "wifi",
+      "disponible": true
+    },
+    {
+      "id": 2,
+      "nombre": "Estacionamiento",
+      "icono": "parking",
+      "disponible": true
+    },
+    {
+      "id": 3,
+      "nombre": "Recepción 24/7",
+      "icono": "reception",
+      "disponible": true
+    },
+    {
+      "id": 4,
+      "nombre": "Restaurante",
+      "icono": "restaurant",
+      "disponible": true
+    },
+    {
+      "id": 5,
+      "nombre": "Salón de eventos",
+      "icono": "events",
+      "disponible": true
+    }
+  ],
+
+  "habitaciones": [
+    {
+      "id": "HAB-01",
+      "tipo": "Habitación Simple",
+      "descripcion": "Habitación cómoda ideal para una persona.",
+      "capacidad": {
+        "adultos": 1,
+        "ninos": 0
+      },
+      "cantidad_camas": 1,
+      "tipo_cama": "Individual",
+      "precio_por_noche": 45.00,
+      "moneda": "USD",
+      "disponible": true,
+      "cantidad_disponible": 5,
+      "imagen": "https://images.unsplash.com/photo-1611892440504-42a792e24d32",
+      "comodidades": [
+        "Baño privado",
+        "Wi-Fi",
+        "Televisión",
+        "Escritorio",
+        "Agua caliente"
+      ]
+    },
+    {
+      "id": "HAB-02",
+      "tipo": "Habitación Doble",
+      "descripcion": "Habitación amplia para parejas o dos huéspedes.",
+      "capacidad": {
+        "adultos": 2,
+        "ninos": 1
+      },
+      "cantidad_camas": 1,
+      "tipo_cama": "King Size",
+      "precio_por_noche": 65.00,
+      "moneda": "USD",
+      "disponible": true,
+      "cantidad_disponible": 3,
+      "imagen": "https://images.unsplash.com/photo-1590490360182-c33d57733427",
+      "comodidades": [
+        "Cama King Size",
+        "Baño privado",
+        "Wi-Fi",
+        "Televisor de 42 pulgadas",
+        "Escritorio",
+        "Minibar"
+      ]
+    },
+    {
+      "id": "HAB-03",
+      "tipo": "Habitación Familiar",
+      "descripcion": "Habitación diseñada para familias que buscan mayor espacio.",
+      "capacidad": {
+        "adultos": 4,
+        "ninos": 2
+      },
+      "cantidad_camas": 3,
+      "tipo_cama": "King Size + individuales",
+      "precio_por_noche": 95.00,
+      "moneda": "USD",
+      "disponible": false,
+      "cantidad_disponible": 0,
+      "imagen": "https://images.unsplash.com/photo-1566665797739-1674de7a421a",
+      "comodidades": [
+        "Baño privado",
+        "Wi-Fi",
+        "Smart TV",
+        "Minibar",
+        "Sala pequeña",
+        "Agua caliente"
+      ]
+    }
+  ],
+
+  "servicios": [
+    {
+    "id": 1,
+    "nombre": "Servicio a la habitación",
+    "descripcion": "Servicio de alimentos y bebidas directamente a la habitación.",
+    "horario": "07:00 - 22:00",
+    "costo_adicional": true,
+    "imagen": "https://images.unsplash.com/photo-1414235077428-338989a2e8c0"
+  },
+    {
+        "id": 2,
+    "nombre": "Lavandería",
+    "descripcion": "Servicio de lavado y planchado.",
+    "horario": "08:00 - 18:00",
+    "costo_adicional": true,
+    "imagen": "https://images.unsplash.com/photo-1545173168-9f1947eebb7f"
+    },
+    {
+      "id": 3,
+      "nombre": "Estacionamiento",
+      "descripcion": "Estacionamiento privado para huéspedes.",
+      "horario": "24 horas",
+      "costo_adicional": false,
+      "imagen": "https://images.unsplash.com/photo-1506521781263-d8422e82f27a"
+    }
+  ],
+
+  "restaurante": {
+    "nombre": "Sabores del Ande",
+    "descripcion": "Restaurante especializado en gastronomía ecuatoriana y platos internacionales.",
+    "imagen": "assets/images/restaurante.jpg",
+
+    "horario": {
+      "apertura": "07:00",
+      "cierre": "22:00"
+    },
+
+    "menu": {
+      "entradas": [
+        {
+          "id": "ENT-01",
+          "nombre": "Empanadas de Viento",
+          "descripcion": "Dos empanadas rellenas de queso servidas con azúcar.",
+          "precio": 4.50,
+          "moneda": "USD",
+          "imagen": "assets/images/empanadas.jpg",
+          "disponible": true
+        }
+      ],
+
+      "platos_fuertes": [
+        {
+          "id": "PLA-01",
+          "nombre": "Locro de Papa",
+          "descripcion": "Sopa tradicional de papa con queso y aguacate.",
+          "precio": 7.00,
+          "moneda": "USD",
+          "imagen": "assets/images/locro.jpg",
+          "disponible": true
+        },
+        {
+          "id": "PLA-02",
+          "nombre": "Lomo Fino en Salsa de Champiñones",
+          "descripcion": "Medallón de lomo acompañado de papas fritas y ensalada.",
+          "precio": 14.50,
+          "moneda": "USD",
+          "imagen": "assets/images/lomo.jpg",
+          "disponible": true
+        }
+      ],
+
+      "postres": [
+        {
+          "id": "POS-01",
+          "nombre": "Higos con Queso",
+          "descripcion": "Higos cocidos en miel de panela acompañados de queso fresco.",
+          "precio": 3.50,
+          "moneda": "USD",
+          "imagen": "assets/images/higos.jpg",
+          "disponible": true
+        }
+      ],
+
+      "bebidas": [
+        {
+          "id": "BEB-01",
+          "nombre": "Jugo Natural de Lulo",
+          "precio": 2.50,
+          "moneda": "USD",
+          "tipo": "Sin alcohol",
+          "disponible": true
+        },
+        {
+          "id": "BEB-02",
+          "nombre": "Cerveza Artesanal Local",
+          "precio": 4.00,
+          "moneda": "USD",
+          "tipo": "Con alcohol",
+          "disponible": true
+        }
+      ]
+    }
+  },
+
+  "eventos": {
+    "ofrece_eventos": true,
+    "salones": [
+      {
+        "id": "SAL-01",
+        "nombre": "Salón Andino",
+        "capacidad_personas": 80,
+        "descripcion": "Salón para reuniones empresariales, cumpleaños y eventos sociales.",
+        "precio_desde": 150.00,
+        "moneda": "USD",
+        "servicios_incluidos": [
+          "Mesas",
+          "Sillas",
+          "Wi-Fi",
+          "Proyector"
+        ]
+      }
+    ]
+  },
+
+  "promociones": [
+    {
+      "id": "PROMO-01",
+      "titulo": "Fin de semana en pareja",
+      "descripcion": "Disfruta de una noche para dos personas con desayuno incluido.",
+      "descuento_porcentaje": 15,
+      "fecha_inicio": "2026-08-01",
+      "fecha_fin": "2026-09-30",
+      "activa": true
+    }
+  ],
+
+  "politicas": {
+    "mascotas_permitidas": false,
+    "permitido_fumar": false,
+
+    "cancelacion": {
+      "permitida": true,
+      "tiempo_limite_horas": 48,
+      "penalizacion_cancelacion_tardia": 30.00,
+      "moneda": "USD"
+    },
+
+    "ninos": {
+      "permitidos": true,
+      "edad_maxima_gratuita": 5
+    }
+  },
+
+  "metodos_pago": [
+    {
+      "tipo": "Efectivo",
+      "disponible": true
+    },
+    {
+      "tipo": "Visa",
+      "disponible": true
+    },
+    {
+      "tipo": "Mastercard",
+      "disponible": true
+    },
+    {
+      "tipo": "Transferencia bancaria",
+      "disponible": true
+    }
+  ],
+
+  "valoraciones": {
+    "promedio": 4.5,
+    "total": 128,
+
+    "categorias": {
+      "limpieza": 4.7,
+      "servicio": 4.6,
+      "ubicacion": 4.3,
+      "comodidad": 4.5,
+      "calidad_precio": 4.4
+    },
+
+    "comentarios": [
+      {
+        "id": 1,
+        "usuario": "Carlos_M",
+        "fecha": "2026-08-15",
+        "puntuacion": 5,
+        "comentario": "Excelente servicio y la comida del restaurante es deliciosa.",
+        "imagen": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e"
+      },
+      {
+         "id": 2,
+        "usuario": "Ana_P",
+        "fecha": "2026-08-10",
+        "puntuacion": 4,
+        "comentario": "Habitaciones cómodas, aunque el parqueadero es un poco estrecho.",
+        "imagen": "https://images.unsplash.com/photo-1494790108377-be9c29b29330"
+      }
+    ]
+  },
+
+  "preguntas_frecuentes": [
+    {
+      "pregunta": "¿El hotel cuenta con estacionamiento?",
+      "respuesta": "Sí, contamos con estacionamiento privado gratuito para nuestros huéspedes."
+    },
+    {
+      "pregunta": "¿Cuál es el horario de check-in?",
+      "respuesta": "El check-in está disponible a partir de las 14:00."
+    },
+    {
+      "pregunta": "¿El hotel ofrece Wi-Fi?",
+      "respuesta": "Sí, ofrecemos Wi-Fi gratuito en habitaciones y áreas comunes."
+    },
+    {
+      "pregunta": "¿El hotel cuenta con restaurante?",
+      "respuesta": "Sí, nuestro restaurante Sabores del Ande atiende de 07:00 a 22:00."
+    }
+  ]
+}

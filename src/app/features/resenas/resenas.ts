@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectorRef } from '@angular/core';
 import { Hero } from '../../shared/hero/hero';
+import { HotelService } from '../../services/hotel.service';
 
 @Component({
   selector: 'app-resenas',
@@ -9,25 +10,27 @@ import { Hero } from '../../shared/hero/hero';
 })
 export class Resenas {
 
-  resenas = [
-    {
-      id: 1,
-      nombre: 'Carlos Martínez',
-      comentario: 'Excelente atención, habitaciones muy cómodas y limpias. Definitivamente volvería.',
-      calificacion: 5
-    },
-    {
-      id: 2,
-      nombre: 'María López',
-      comentario: 'Una experiencia muy agradable. El personal fue amable y la habitación estuvo perfecta.',
-      calificacion: 5
-    },
-    {
-      id: 3,
-      nombre: 'Andrés Torres',
-      comentario: 'Muy buena ubicación y excelente relación entre precio y calidad.',
-      calificacion: 4
-    }
-  ];
+  resenas: any[] = [];
+  promedio: number = 0;
+  total: number = 0;
 
+  constructor(
+    private hotelService: HotelService,
+    private cdr: ChangeDetectorRef
+  ) {
+    this.cargarResenas();
+  }
+
+  async cargarResenas() {
+
+    const hotel: any = await this.hotelService.obtenerHotel();
+
+    if (hotel?.valoraciones) {
+      this.resenas = hotel.valoraciones.comentarios;
+      this.promedio = hotel.valoraciones.promedio;
+      this.total = hotel.valoraciones.total;
+    }
+
+    this.cdr.detectChanges();
+  }
 }
