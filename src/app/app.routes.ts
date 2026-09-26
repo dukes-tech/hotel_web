@@ -6,12 +6,13 @@ import { Contactos } from './features/contactos/contactos';
 import { Resenas } from './features/resenas/resenas';
 import { Habitaciones } from './features/habitaciones/habitaciones';
 import { Servicios } from './features/servicios/servicios';
+import { Staff } from './features/staff/staff';
 
 import { Registro } from './pages/registro/registro';
 import { Login } from './pages/login/login';
 
 import { adminChildGuard } from './guards/admin-child-guard';
-
+import { authGuard } from './guards/auth-guard';
 
 export const routes: Routes = [
 
@@ -47,10 +48,19 @@ export const routes: Routes = [
     component: Registro
   },
 
+  // LOGIN
   {
     path: 'login',
     component: Login
   },
+
+  // STAFF - PROTEGIDO CON CANACTIVATE
+  {
+    path: 'staff',
+    component: Staff,
+    canActivate: [authGuard]
+  },
+
   // ADMIN
   {
     path: 'admin',
