@@ -1,6 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
 import { StaffService } from '../../services/staff';
 
 @Component({
@@ -16,38 +15,29 @@ export class Staff implements OnInit {
   cargando = true;
   error = '';
 
-  constructor(private staffService: StaffService) {}
+  constructor(
+    private staffService: StaffService,
+    private cdr: ChangeDetectorRef
+  ) {}
 
   ngOnInit(): void {
-
     this.staffService.obtenerPersonajes().subscribe({
-
       next: (respuesta: any) => {
 
-        console.log('FUTURAMA API:', respuesta);
-
-        // La API puede devolver directamente el array
-        // o devolverlo dentro de results/items.
-        if (Array.isArray(respuesta)) {
-          this.personajes = respuesta;
-        } else if (respuesta.items) {
-          this.personajes = respuesta.items;
-        } else if (respuesta.results) {
-          this.personajes = respuesta.results;
-        } else {
-          this.personajes = [];
-        }
-
+        this.personajes = respuesta.items || [];
         this.cargando = false;
+
+        this.cdr.detectChanges();
       },
 
       error: (error: any) => {
         console.error('ERROR FUTURAMA:', error);
+
         this.error = 'No se pudieron cargar los personajes.';
         this.cargando = false;
+
+        this.cdr.detectChanges();
       }
-
     });
-
   }
 }
