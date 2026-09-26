@@ -7,7 +7,11 @@ import { Resenas } from './features/resenas/resenas';
 import { Habitaciones } from './features/habitaciones/habitaciones';
 import { Servicios } from './features/servicios/servicios';
 
+import { Registro } from './pages/registro/registro';
+import { Login } from './pages/login/login';
+
 import { adminChildGuard } from './guards/admin-child-guard';
+
 
 export const routes: Routes = [
 
@@ -37,6 +41,17 @@ export const routes: Routes = [
     component: Resenas
   },
 
+  // REGISTRO
+  {
+    path: 'registro',
+    component: Registro
+  },
+
+  {
+    path: 'login',
+    component: Login
+  },
+  // ADMIN
   {
     path: 'admin',
     canActivateChild: [adminChildGuard],

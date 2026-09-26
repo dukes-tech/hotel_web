@@ -1,15 +1,31 @@
 import { inject } from '@angular/core';
 import { CanActivateChildFn, Router } from '@angular/router';
+import { onAuthStateChanged } from 'firebase/auth';
 
-export const adminChildGuard: CanActivateChildFn = (childRoute, state) => {
+import { auth } from '../services/firebase';
+
+export const adminChildGuard: CanActivateChildFn = () => {
 
   const router = inject(Router);
 
-  const tieneAcceso = false;
+  return new Promise((resolve) => {
 
-  if (tieneAcceso) {
-    return true;
-  }
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
 
-  return router.createUrlTree(['/home']);
+      unsubscribe();
+
+      // USUARIO LOGUEADO
+      if (user) {
+        resolve(true);
+        return;
+      }
+
+      // USUARIO NO LOGUEADO
+      resolve(
+        router.createUrlTree(['/login'])
+      );
+
+    });
+
+  });
 };

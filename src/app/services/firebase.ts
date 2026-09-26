@@ -1,5 +1,6 @@
 import { initializeApp } from 'firebase/app';
 import { getFirestore, doc, getDoc } from 'firebase/firestore';
+import { getAuth } from 'firebase/auth';
 
 const firebaseConfig = {
   apiKey: "AIzaSyBmGl88v2VCXlNF3z2BaQCk-KAr7TT_SrE",
@@ -12,11 +13,20 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 
+// Firestore
 export const db = getFirestore(app);
 
+// Authentication
+export const auth = getAuth(app);
+
+// Prueba de conexión con Firestore
 getDoc(doc(db, 'hotel', '101'))
   .then(resultado => {
-    console.log('PRUEBA FIREBASE:', resultado.exists(), resultado.data());
+    console.log(
+      'PRUEBA FIREBASE:',
+      resultado.exists(),
+      resultado.data()
+    );
   })
   .catch(error => {
     console.error('ERROR FIREBASE:', error);
